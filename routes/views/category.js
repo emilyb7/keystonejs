@@ -20,9 +20,7 @@ exports = module.exports = (req, res) => {
           locals.description = cat.description;
 
           films.model.find({category: { _id: cat.id } }).exec((err, results) => {
-            //console.log(results);
             locals.films = results;
-            console.log(locals);
             next();
           });
         }

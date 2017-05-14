@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+require('dotenv').config();
 
 keystone.init({
 
@@ -24,5 +25,4 @@ keystone.init({
 require('./models');
 
 keystone.set('routes', require('./routes'));
-
 keystone.start();

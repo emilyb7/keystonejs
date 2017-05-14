@@ -63,3 +63,25 @@ To match only certain values, specify as argument to `find`:
 ```js
 films.model.find({category: { _id: cat.id } }).exec
 ```
+
+
+### Custom content
+
+#### Images
+
+For this we need an account with Cloudinary, which is free.
+
+I've saved my API key and secret in a `.env` file. Using the `dotenv` module for env variables this time.
+
+Cloudinary config is set like this:
+```js
+keystone.set('cloudinary config', process.env.CLOUDINARY);
+```
+
+I've added the following the `films` model:
+
+```js
+image: { type: Types.CloudinaryImage, publicID: 'slug', autoCleanup: true, },
+```
+
+Images can now be uploaded in the admin panel and views on cloudinary!
