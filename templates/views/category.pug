@@ -5,3 +5,8 @@ block content
     
     #description
       p!=description
+      
+    #films
+      ul
+        each f in films
+          li=f.name

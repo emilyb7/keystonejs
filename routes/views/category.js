@@ -1,5 +1,6 @@
 const keystone = require('keystone');
 const category = keystone.list('Category');
+const films = keystone.list('Film');
 
 exports = module.exports = (req, res) => {
 
@@ -7,24 +8,29 @@ exports = module.exports = (req, res) => {
   const locals = res.locals;
   locals.category = '';
   locals.description = '';
+  locals.films = [];
 
   view.on('init', (next) => {
     if (req.params.cat) {
-      category.model.findOne({ key: req.params.cat}).exec((err, result) => {
+      category.model.findOne({ key: req.params.cat}).exec((err, cat) => {
         if (err) {
           next(err);
         } else {
-          locals.category = result.name;
-          locals.description = result.description;
-          next();
+          locals.category = cat.name;
+          locals.description = cat.description;
+
+          films.model.find({category: { _id: cat.id } }).exec((err, results) => {
+            //console.log(results);
+            locals.films = results;
+            console.log(locals);
+            next();
+          });
         }
       });
     } else {
       next();
     }
   });
-
-  console.log(locals);
 
   view.render('category');
 };
