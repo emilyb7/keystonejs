@@ -45,3 +45,16 @@ To display a variable from the server use `={var}`
 For inlining two types of HTML tag: `li: a(href="#")`
 
 To escape custom HTML input `p!=description`
+
+
+### Some mongo learnings
+
+To get one matching result from DB (e.g. when search value is unique):
+```js
+category.model.findOne({ key: req.params.cat}).exec
+```
+
+To get all matching results:
+```js
+films.model.find().exec
+```
