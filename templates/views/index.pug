@@ -6,5 +6,5 @@ block content
     #categories
       ul
         each c in categories
-          li: a(href="#")
+          li: a(href=`/category/${c.name}`)
             =c.name

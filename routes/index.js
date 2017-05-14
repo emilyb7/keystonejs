@@ -7,11 +7,9 @@ keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
-console.log('routes');
-
 // Handle 404 errors
 keystone.set('404', (req, res) => {
-  res.notfound();
+  res.status(404).render('errors/404');
 });
 
 // Handle other errors
@@ -31,6 +29,6 @@ const routes = {
 
 // Bind Routes
 exports = module.exports = (app) => {
-  console.log('bind routes');
   app.get('/', routes.views.index);
+  app.get('/category/:cat', routes.views.category);
 };

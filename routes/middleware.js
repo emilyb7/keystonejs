@@ -19,20 +19,17 @@ exports.initLocals = (req, res, next) => {
 */
 exports.initErrorHandlers = (req, res, next) => {
 
-  res.err = (err, title, message) => {
-    res.status(500).render('errors/500', {
-      err: err,
-      errorTitle: title,
-      errorMsg: message
-    });
-  };
+  // res.notfound = () => {
+  //   res.status(404).render('errors/404');
+  // };
 
-  res.notfound = (title, message) => {
-    res.status(404).render('errors/404', {
-      errorTitle: title,
-      errorMsg: message
-    });
-  };
+  // res.err = (err, title, message) => {
+  //   res.status(500).render('errors/500', {
+  //     err: err,
+  //     errorTitle: title,
+  //     errorMsg: message
+  //   });
+  // };
 
   next();
 
