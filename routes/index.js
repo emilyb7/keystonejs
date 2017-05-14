@@ -31,4 +31,5 @@ const routes = {
 exports = module.exports = (app) => {
   app.get('/', routes.views.index);
   app.get('/category/:cat', routes.views.category);
+  app.get('/film/:title', routes.views.film);
 };

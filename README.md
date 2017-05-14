@@ -38,6 +38,11 @@ Film.add({
 });
 ```
 
+### Creating routes
+
+* Create a view under `routes/views`
+* Include the route in `routes/index.js` - this needs two arguments
+
 ### Some basic pug learnings
 
 To display a variable from the server use `={var}`
