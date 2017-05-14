@@ -13,7 +13,7 @@ keystone.init({
   'view engine': 'pug',
 
   'auto update': true,
-  'mongo': 'mongodb://localhost/keystone-demo',
+  'mongo': process.env.MONGODB_URI,
 
   'session': true,
   'auth': true,

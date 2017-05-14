@@ -90,3 +90,13 @@ image: { type: Types.CloudinaryImage, publicID: 'slug', autoCleanup: true, },
 ```
 
 Images can now be uploaded in the admin panel and views on cloudinary!
+
+### Deployment
+
+Keystone sites can be deployed to heroku. I followed the instructions here:
+
+https://gist.github.com/vitalbone/e49650000dcd005cac48
+
+Additionally:
+* Change the mongoDB url in `web.js` to come from process.env and put your local mongo url in `.env` file
+* Add a start script to `package.json`
