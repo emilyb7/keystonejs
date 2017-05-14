@@ -54,7 +54,12 @@ To get one matching result from DB (e.g. when search value is unique):
 category.model.findOne({ key: req.params.cat}).exec
 ```
 
-To get all matching results:
+To get everything from a list:
 ```js
 films.model.find().exec
+```
+
+To match only certain values, specify as argument to `find`:
+```js
+films.model.find({category: { _id: cat.id } }).exec
 ```
