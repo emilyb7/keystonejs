@@ -23,8 +23,6 @@ keystone.init({
 
 require('./models');
 
-console.log('web');
-
 keystone.set('routes', require('./routes'));
 
 keystone.start();
