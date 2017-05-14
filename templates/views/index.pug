@@ -2,3 +2,9 @@ extends ../layouts/base
 
 block content
     h1 Hello World
+    
+    #categories
+      ul
+        each c in categories
+          li: a(href="#")
+            =c.name

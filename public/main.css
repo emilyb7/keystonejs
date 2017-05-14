@@ -1,0 +1,10 @@
+body {
+  background: pink;
+  margin: 0;
+}
+
+nav {
+  background: hotpink;
+  height: 200px;
+  width: 100%;
+}
