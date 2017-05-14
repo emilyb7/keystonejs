@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const types = keystone.Field.Types;
 
 const Category = new keystone.List('Category', {
   autokey: { from: 'name', path: 'key', unique: true, },
@@ -7,6 +8,7 @@ const Category = new keystone.List('Category', {
 
 Category.add({
   name: { type: String, required: true, },
+  description: { type: types.Html, required: false, wysiwyg: true, },
 });
 
 Category.track = true;

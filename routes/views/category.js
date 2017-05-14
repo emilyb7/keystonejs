@@ -6,6 +6,7 @@ exports = module.exports = (req, res) => {
   const view = new keystone.View(req, res);
   const locals = res.locals;
   locals.category = '';
+  locals.description = '';
 
   view.on('init', (next) => {
     if (req.params.cat) {
@@ -14,6 +15,7 @@ exports = module.exports = (req, res) => {
           next(err);
         } else {
           locals.category = result.name;
+          locals.description = result.description;
           next();
         }
       });

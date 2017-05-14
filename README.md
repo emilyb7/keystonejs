@@ -42,4 +42,6 @@ Film.add({
 
 To display a variable from the server use `={var}`
 
-For inlining two types of HTML tag: `li: a(href="#")` 
+For inlining two types of HTML tag: `li: a(href="#")`
+
+To escape custom HTML input `p!=description`
