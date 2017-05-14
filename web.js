@@ -9,7 +9,7 @@ keystone.init({
   'static': ['public'],
 
   'views': 'templates/views',
-  'view engine': 'jade',
+  'view engine': 'pug',
 
   'auto update': true,
   'mongo': 'mongodb://localhost/keystone-demo',
@@ -22,8 +22,6 @@ keystone.init({
 });
 
 require('./models');
-
-console.log('web');
 
 keystone.set('routes', require('./routes'));
 

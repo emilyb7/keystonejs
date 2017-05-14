@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jade": "^1.11.0",
     "keystone": "^4.0.0-beta.5",
+    "pug": "^2.0.0-rc.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
