@@ -9,7 +9,5 @@ Category.add({
   name: { type: String, required: true, },
 });
 
-Category.relationship({ ref: 'Post', refPath: 'categories' });
-
 Category.track = true;
 Category.register();
