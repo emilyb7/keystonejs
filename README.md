@@ -4,7 +4,7 @@ Aims:
 
 1. Figure out how to set up a database with custom schema
 2. Set up basic site structure / logic
-3. Learn some jade
+3. Learn some pug
 
 ### Adding a new model
 
@@ -37,3 +37,8 @@ Film.add({
   category: { type: Types.Relationship, ref: 'Category', many: true, },
 });
 ```
+
+### Some basic pug learnings
+
+To display a variable from the server use `={var}`
+For inlining two types of HTML tag: `li: a(href="#")` 
