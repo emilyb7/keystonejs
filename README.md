@@ -5,10 +5,13 @@ Aims:
 1. Figure out how to set up a database with custom schema
 2. Set up basic site structure / logic
 3. Learn some pug
+4. Deploy to Heroku
 
 ### Adding a new model
 
-Example code:
+Models represent lists. Lists are collections of data in the database. The content of lists can be managed via keystone's admin UI.
+
+Example code for configuring a list:
 
 ```js
 const keystone = require('keystone');
@@ -16,11 +19,11 @@ const keystone = require('keystone');
 const Category = new keystone.List('Category', {
   autokey: { from: 'name', path: 'key', unique: true, },
   label: 'Categories',
-});
+}); // config for admin UI
 
 Category.add({
   name: { type: String, required: true, },
-});
+}); // relates to DB schema
 
 Category.track = true;
 Category.register();
@@ -41,7 +44,8 @@ Film.add({
 ### Creating routes
 
 * Create a view under `routes/views`
-* Include the route in `routes/index.js` - this needs two arguments
+* Include the route in `routes/index.js` - this needs two arguments (the path and the view)
+* Any data that you need to access in your templates needs to be assigned to `res.locals`
 
 ### Some basic pug learnings
 
@@ -74,9 +78,9 @@ films.model.find({category: { _id: cat.id } }).exec
 
 #### Images
 
-For this we need an account with Cloudinary, which is free.
+In order for an admin to be able to upload custom images, we need to sign up for Cloudinary, which is free.
 
-I've saved my API key and secret in a `.env` file. Using the `dotenv` module for env variables this time.
+I've saved my API key and secret in a `.env` file. Using the `dotenv` module for env variables.
 
 Cloudinary config is set like this:
 ```js
@@ -89,7 +93,7 @@ I've added the following the `films` model:
 image: { type: Types.CloudinaryImage, publicID: 'slug', autoCleanup: true, },
 ```
 
-Images can now be uploaded in the admin panel and views on cloudinary!
+Images can now be uploaded in the admin panel. You can see the uploaded images immediately when you sign into Cloudinary.
 
 ### Deployment
 
